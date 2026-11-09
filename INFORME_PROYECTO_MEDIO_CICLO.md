@@ -15,8 +15,8 @@
 | :--- | :--- |
 | **Nombre de la Aplicación** | **Mi Billetera Digital - Control de Gastos Personales** |
 | **Integrantes del Grupo** | 1. [Apellidos y Nombres Integrante 1] <br> 2. [Apellidos y Nombres Integrante 2] <br> 3. [Apellidos y Nombres Integrante 3] |
-| **Enlace al Repositorio de GitHub** | `https://github.com/[usuario]/[repositorio-billetera]` *(Completar con el enlace)* |
-| **Enlace a la Aplicación (GitHub Pages)**| `https://[usuario].github.io/[repositorio-billetera]/` *(Completar con el enlace)* |
+| **Enlace al Repositorio de GitHub** | `https://github.com/everbaque/mi-billetera-digital` |
+| **Enlace a la Aplicación (GitHub Pages)**| `https://everbaque.github.io/mi-billetera-digital/` |
 
 ---
 
