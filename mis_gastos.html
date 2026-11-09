@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Análisis visual de gastos por categorías y filtros de periodos temporales conforme a WCAG 2.2.">
+  <title>Mi Billetera Digital - Mis Gastos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Enlace accesible para saltar directo al contenido (WCAG 2.4.1) -->
+  <a href="#contenido-principal" class="saltar-enlace">Saltar al contenido principal</a>
+
+  <div class="layout-dashboard">
+    
+    <!-- BARRA LATERAL CON NAVEGACIÓN SEMÁNTICA -->
+    <aside class="sidebar-lateral" aria-label="Barra lateral">
+      <div class="sidebar-marca">
+        <div class="sidebar-logo" aria-hidden="true">💰</div>
+        <div>
+          <span class="sidebar-titulo">Mi Billetera</span>
+          <span class="sidebar-subtitulo">Control Financiero</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu" aria-label="Menú principal">
+        <a href="index.html" class="sidebar-item">
+          <span class="item-icono" aria-hidden="true">🏠</span>
+          <span>INICIO</span>
+        </a>
+        <a href="registrar_movimiento.html" class="sidebar-item">
+          <span class="item-icono" aria-hidden="true">➕</span>
+          <span>REGISTRAR MOVIMIENTO</span>
+        </a>
+        <a href="mis_gastos.html" class="sidebar-item activo" aria-current="page">
+          <span class="item-icono" aria-hidden="true">📊</span>
+          <span>MIS GASTOS</span>
+        </a>
+        <a href="historial.html" class="sidebar-item">
+          <span class="item-icono" aria-hidden="true">📜</span>
+          <span>HISTORIAL</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL: ANÁLISIS DE GASTOS -->
+    <main id="contenido-principal" class="contenido-principal">
+      <header class="header-tarjeta">
+        <div>
+          <h1>Mis gastos</h1>
+          <p class="subtitulo-tarjeta">Billetera Digital y Control Financiero</p>
+        </div>
+      </header>
+
+      <!-- Filtros de tiempo accesibles -->
+      <section class="filtros-tiempo" id="filtros-tiempo" aria-label="Filtros de periodo temporal">
+        <button type="button" class="pildora-tiempo" data-filtro="semana" aria-pressed="false">Esta semana</button>
+        <button type="button" class="pildora-tiempo" data-filtro="mes" aria-pressed="false">Este mes</button>
+        <button type="button" class="pildora-tiempo" data-filtro="6meses" aria-pressed="false">6 meses</button>
+        <button type="button" class="pildora-tiempo activa" data-filtro="ano" aria-pressed="true">✓ Este año</button>
+      </section>
+
+      <!-- Tarjeta Total Gastado + Gráfico de barras conforme a W3C (sin style inline) -->
+      <section class="tarjeta-grafico-gastos" aria-labelledby="etiqueta-total-gastado">
+        <div class="encabezado-tarjeta-gasto">
+          <div>
+            <span id="etiqueta-total-gastado" class="texto-secundario">Total gastado</span>
+            <h2 id="total-gastado-periodo">$ 0,00</h2>
+          </div>
+          <button type="button" class="btn-recargar" id="btn-recargar" aria-label="Actualizar datos del periodo">↻</button>
+        </div>
+
+        <!-- Gráfico de barras visual -->
+        <div class="grafico-barras-contenedor" aria-hidden="true">
+          <div class="eje-y">
+            <span>$1.4K</span>
+            <span>$0</span>
+          </div>
+          <div class="barras-fila">
+            <div class="barra-columna"><div class="barra barra-altura-1"></div></div>
+            <div class="barra-columna"><div class="barra barra-altura-2"></div></div>
+            <div class="barra-columna"><div class="barra barra-altura-3"></div></div>
+            <div class="barra-columna"><div class="barra barra-altura-4"></div></div>
+            <div class="barra-columna"><div class="barra barra-altura-5"></div></div>
+            <div class="barra-columna"><div class="barra barra-altura-6"></div></div>
+            <div class="barra-columna"><div class="barra barra-altura-7"></div></div>
+            <div class="barra-columna"><div class="barra barra-altura-8"></div></div>
+            <div class="barra-columna"><div class="barra barra-altura-9"></div></div>
+            <div class="barra-columna"><div class="barra barra-altura-10"></div></div>
+          </div>
+        </div>
+
+        <div class="eje-x" aria-hidden="true">
+          <span>Ene 26</span>
+          <span>Dic 26</span>
+        </div>
+
+        <p class="nota-periodo">Te mostraremos los pagos realizados en este periodo.</p>
+      </section>
+
+      <!-- Sección Mi top de gastos -->
+      <section class="bloque-top-gastos" aria-labelledby="titulo-top-gastos">
+        <h2 id="titulo-top-gastos" class="titulo-top-gastos">Mi top de gastos 🏆</h2>
+        
+        <div id="lista-top-gastos" class="lista-top-gastos" role="region" aria-live="polite">
+          <!-- Generado dinámicamente con JavaScript -->
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- PIE DE PÁGINA SEMÁNTICO (WCAG 1.3.1) -->
+  <footer class="footer-global">
+    <p>&copy; 2026 Mi Billetera Digital - Proyecto Desarrollo Basado en Plataformas (UTM). Estándares W3C y WCAG 2.2.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

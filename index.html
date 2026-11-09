@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mi Billetera Digital - Control de gastos personales, balance en tiempo real y registro de transacciones.">
+  <title>Mi Billetera Digital - Inicio y Resumen Financiero</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Enlace accesible para saltar directo al contenido (WCAG 2.4.1) -->
+  <a href="#contenido-principal" class="saltar-enlace">Saltar al contenido principal</a>
+
+  <div class="layout-dashboard">
+    
+    <!-- BARRA LATERAL CON NAVEGACIÓN SEMÁNTICA (WCAG 1.3.1) -->
+    <aside class="sidebar-lateral" aria-label="Barra lateral">
+      <div class="sidebar-marca">
+        <div class="sidebar-logo" aria-hidden="true">💰</div>
+        <div>
+          <span class="sidebar-titulo">Mi Billetera</span>
+          <span class="sidebar-subtitulo">Control Financiero</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu" aria-label="Menú principal">
+        <a href="index.html" class="sidebar-item activo" aria-current="page">
+          <span class="item-icono" aria-hidden="true">🏠</span>
+          <span>INICIO</span>
+        </a>
+        <a href="registrar_movimiento.html" class="sidebar-item">
+          <span class="item-icono" aria-hidden="true">➕</span>
+          <span>REGISTRAR MOVIMIENTO</span>
+        </a>
+        <a href="mis_gastos.html" class="sidebar-item">
+          <span class="item-icono" aria-hidden="true">📊</span>
+          <span>MIS GASTOS</span>
+        </a>
+        <a href="historial.html" class="sidebar-item">
+          <span class="item-icono" aria-hidden="true">📜</span>
+          <span>HISTORIAL</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL DE LA VISTA INICIO -->
+    <main id="contenido-principal" class="contenido-principal">
+      <header class="header-tarjeta">
+        <div>
+          <h1>Resumen Financiero</h1>
+          <p class="subtitulo-tarjeta">Saldos y balance general en tiempo real</p>
+        </div>
+      </header>
+
+      <!-- Tarjeta principal de Balance Total -->
+      <section class="tarjeta-balance-total" aria-labelledby="etiqueta-balance-total">
+        <span id="etiqueta-balance-total" class="etiqueta-balance">Balance Total Disponible</span>
+        <h2 id="balance-total">$0.00</h2>
+      </section>
+
+      <!-- Dinero en Banco vs Dinero en Efectivo -->
+      <section class="fila-cuentas" aria-label="Desglose por cuentas">
+        <div class="tarjeta-cuenta">
+          <div class="icono-cuenta" aria-hidden="true">🏦</div>
+          <div class="info-cuenta">
+            <span class="nombre-cuenta">Banco / Transferencia</span>
+            <span id="saldo-banco" class="saldo-monto">$0.00</span>
+          </div>
+        </div>
+
+        <div class="tarjeta-cuenta">
+          <div class="icono-cuenta" aria-hidden="true">💵</div>
+          <div class="info-cuenta">
+            <span class="nombre-cuenta">Dinero en Efectivo</span>
+            <span id="saldo-efectivo" class="saldo-monto">$0.00</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resumen de Ingresos y Gastos -->
+      <section class="fila-resumen-rapido" aria-label="Resumen de ingresos y gastos">
+        <div class="caja-resumen-mini ingresos">
+          <span>Ingresos Totales</span>
+          <h2 id="total-ingresos">📈 +$0.00</h2>
+        </div>
+
+        <div class="caja-resumen-mini gastos">
+          <span>Gastos Totales</span>
+          <h2 id="total-gastos">📉 -$0.00</h2>
+        </div>
+      </section>
+
+      <!-- Botones de Acceso Rápido -->
+      <section class="accesos-rapidos" aria-label="Accesos directos">
+        <a href="registrar_movimiento.html" class="btn-acceso">
+          <span aria-hidden="true">➕</span> Registrar Nuevo Movimiento
+        </a>
+        <a href="mis_gastos.html" class="btn-acceso">
+          <span aria-hidden="true">📊</span> Ver Análisis de Mis Gastos
+        </a>
+        <a href="historial.html" class="btn-acceso">
+          <span aria-hidden="true">📜</span> Ver Historial de Movimientos
+        </a>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- PIE DE PÁGINA SEMÁNTICO (WCAG 1.3.1) -->
+  <footer class="footer-global">
+    <p>&copy; 2026 Mi Billetera Digital - Proyecto Desarrollo Basado en Plataformas (UTM). Estándares W3C y WCAG 2.2.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

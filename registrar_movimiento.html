@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formulario para registrar ingresos y gastos con validación en JavaScript y accesibilidad WCAG 2.2.">
+  <title>Mi Billetera Digital - Registrar Movimiento</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Enlace accesible para saltar directo al contenido (WCAG 2.4.1) -->
+  <a href="#contenido-principal" class="saltar-enlace">Saltar al contenido principal</a>
+
+  <div class="layout-dashboard">
+    
+    <!-- BARRA LATERAL CON NAVEGACIÓN SEMÁNTICA -->
+    <aside class="sidebar-lateral" aria-label="Barra lateral">
+      <div class="sidebar-marca">
+        <div class="sidebar-logo" aria-hidden="true">💰</div>
+        <div>
+          <span class="sidebar-titulo">Mi Billetera</span>
+          <span class="sidebar-subtitulo">Control Financiero</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu" aria-label="Menú principal">
+        <a href="index.html" class="sidebar-item">
+          <span class="item-icono" aria-hidden="true">🏠</span>
+          <span>INICIO</span>
+        </a>
+        <a href="registrar_movimiento.html" class="sidebar-item activo" aria-current="page">
+          <span class="item-icono" aria-hidden="true">➕</span>
+          <span>REGISTRAR MOVIMIENTO</span>
+        </a>
+        <a href="mis_gastos.html" class="sidebar-item">
+          <span class="item-icono" aria-hidden="true">📊</span>
+          <span>MIS GASTOS</span>
+        </a>
+        <a href="historial.html" class="sidebar-item">
+          <span class="item-icono" aria-hidden="true">📜</span>
+          <span>HISTORIAL</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL: FORMULARIO -->
+    <main id="contenido-principal" class="contenido-principal">
+      <header class="header-tarjeta">
+        <div>
+          <h1>Registrar Movimiento</h1>
+          <p class="subtitulo-tarjeta">Añade un nuevo ingreso o gasto a tus cuentas</p>
+        </div>
+      </header>
+
+      <!-- Mensajes accesibles con ARIA live regions (WCAG 3.3.1 y 4.1.3) -->
+      <div id="alerta-exito" class="alerta-exito" role="status" aria-live="polite">
+        ✓ ¡Movimiento guardado exitosamente!
+      </div>
+
+      <div id="alerta-error" class="alerta-error" role="alert" aria-live="assertive">
+        ⚠ Por favor corrige los errores señalados en el formulario.
+      </div>
+
+      <!-- Formulario accesible con validación JavaScript nativa -->
+      <section class="formulario-contenedor" aria-labelledby="titulo-seccion-form">
+        <h2 id="titulo-seccion-form" class="sr-only" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Datos del movimiento</h2>
+        
+        <form id="formulario-transaccion" novalidate>
+          
+          <div class="fila-formulario">
+            <!-- Selector Tipo de Movimiento -->
+            <div class="campo-grupo">
+              <label for="tipo">Tipo de movimiento <span aria-hidden="true">*</span></label>
+              <select id="tipo" name="tipo" required aria-required="true">
+                <option value="gasto" selected>📉 Gasto (-)</option>
+                <option value="ingreso">📈 Ingreso (+)</option>
+              </select>
+            </div>
+
+            <!-- Selector de Cuenta -->
+            <div class="campo-grupo">
+              <label for="cuenta">Método o Cuenta <span aria-hidden="true">*</span></label>
+              <select id="cuenta" name="cuenta" required aria-required="true">
+                <option value="banco">🏦 Banco (Transferencia)</option>
+                <option value="efectivo">💵 Dinero en Efectivo</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Selector de Categoría para Gastos -->
+          <div class="campo-grupo" id="grupo-categoria">
+            <label for="categoria">Categoría del Gasto <span aria-hidden="true">*</span></label>
+            <select id="categoria" name="categoria">
+              <option value="Otros" selected>🤑 Otros (Defecto)</option>
+              <option value="Comida">🍔 Comida</option>
+              <option value="Servicios">💡 Servicios</option>
+              <option value="Salud">💊 Salud</option>
+              <option value="Entretenimiento">🎮 Entretenimiento</option>
+              <option value="Transporte">🚗 Transporte</option>
+            </select>
+          </div>
+
+          <div class="fila-formulario">
+            <!-- Campo de Monto -->
+            <div class="campo-grupo">
+              <label for="monto">Monto ($) <span aria-hidden="true">*</span></label>
+              <input 
+                type="number" 
+                id="monto" 
+                name="monto"
+                placeholder="0.00" 
+                step="0.01" 
+                min="0.01" 
+                required 
+                aria-required="true"
+                aria-describedby="error-monto"
+              >
+              <span id="error-monto" class="texto-error-campo" role="alert">El monto debe ser un número mayor a 0.00</span>
+            </div>
+
+            <!-- Campo de Fecha -->
+            <div class="campo-grupo">
+              <label for="fecha">Fecha <span aria-hidden="true">*</span></label>
+              <input 
+                type="date" 
+                id="fecha" 
+                name="fecha"
+                required 
+                aria-required="true"
+                aria-describedby="error-fecha"
+              >
+              <span id="error-fecha" class="texto-error-campo" role="alert">Por favor ingresa una fecha válida.</span>
+            </div>
+          </div>
+
+          <!-- Detalle o Nota opcional -->
+          <div class="campo-grupo">
+            <label for="descripcion">Detalle o nota (opcional)</label>
+            <input 
+              type="text" 
+              id="descripcion" 
+              name="descripcion"
+              placeholder="Ej. Almuerzo familiar, pago de luz, etc."
+              maxlength="80"
+            >
+          </div>
+
+          <button type="submit" class="btn-primario" id="btn-agregar">
+            Guardar Movimiento
+          </button>
+        </form>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- PIE DE PÁGINA SEMÁNTICO (WCAG 1.3.1) -->
+  <footer class="footer-global">
+    <p>&copy; 2026 Mi Billetera Digital - Proyecto Desarrollo Basado en Plataformas (UTM). Estándares W3C y WCAG 2.2.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
